@@ -25,7 +25,7 @@ export default class App extends Component {
     );
     p5.frameRate(this.fr);
     // use parent to render canvas in this ref (without that p5 render this canvas outside your component)
-    console.log(this.boxA);
+    //  console.log(this.boxA);
   };
   draw = (p5) => {
     p5.background(100);
