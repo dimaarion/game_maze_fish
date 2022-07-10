@@ -17,14 +17,12 @@ export default class App extends Component {
   d = 0;
   action = new Action();
   scena = new Scena();
-  body = new Body("platform");
+  platform = new Body("platform");
+  player = new Body("player");
   setup = (p5, canvasParentRef) => {
     this.engine = this.Engine.create();
     this.world = this.engine.world;
-    // this.Engine.run(this.engine);
-    this.boxA = this.Bodies.rectangle(0, 0, 80, 80);
-    this.boxA.isStatic = true;
-    this.World.add(this.world, this.boxA);
+    this.engine.gravity.y = 2;
     p5.createCanvas(window.innerWidth, window.innerHeight).parent(
       canvasParentRef
     );
@@ -33,14 +31,17 @@ export default class App extends Component {
     //  console.log(this.boxA);
     this.action.setup(p5);
     this.scena.setup();
-    this.body.setup(p5);
+    this.platform.setup(p5, this.world);
+    this.platform.isStatic(true);
+    this.player.figure = 1;
+    this.player.setup(p5, this.world);
   };
   draw = (p5) => {
     p5.background(100);
     p5.fill(0);
-    // p5.rect(this.boxA.velocity.x, this.boxA.velocity.y, 100, 100);
-    this.body.draw(0);
-    this.Engine.update(this.engine, 16.666, 2);
+    this.platform.draw(0);
+    this.player.draw(1);
+    this.Engine.update(this.engine, 16.666, 1);
   };
 
   render() {

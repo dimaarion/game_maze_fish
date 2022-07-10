@@ -16,11 +16,11 @@ export default class Action {
   }
   procentX(x) {
     let r = this.p5.width;
-    return this.procent(r, x);
+    return this.procentIn(r, x);
   }
   procentY(x) {
     let r = this.p5.height;
-    return this.procent(r, x);
+    return this.procentIn(r, x);
   }
   procentInv(n, p) {
     return (p * 100) / n;

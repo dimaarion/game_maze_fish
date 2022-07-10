@@ -6,7 +6,7 @@
          "format":"tmx"
         }
     },
- "height":30,
+ "height":50,
  "infinite":false,
  "layers":[
         {
@@ -28,9 +28,9 @@
                  "rotation":0,
                  "type":"static",
                  "visible":true,
-                 "width":18445.0563201581,
-                 "x":13.0607727272726,
-                 "y":311.0303030303
+                 "width":2509.0563201581,
+                 "x":1.06077272727271,
+                 "y":-12.9696969697
                 }, 
                 {
                  "height":50,
@@ -46,25 +46,8 @@
                  "type":"static",
                  "visible":true,
                  "width":1220.06,
-                 "x":81.97,
-                 "y":83
-                }, 
-                {
-                 "height":50,
-                 "id":61,
-                 "name":"platform",
-                 "properties":[
-                        {
-                         "name":"isStatic",
-                         "type":"bool",
-                         "value":true
-                        }],
-                 "rotation":0,
-                 "type":"static",
-                 "visible":true,
-                 "width":1220.06,
-                 "x":6341.97,
-                 "y":1443
+                 "x":953.97,
+                 "y":927
                 }, 
                 {
                  "height":50,
@@ -79,9 +62,9 @@
                  "rotation":0,
                  "type":"static",
                  "visible":true,
-                 "width":18428.06,
-                 "x":45.97,
-                 "y":1439
+                 "width":2508.06,
+                 "x":1.97000000000025,
+                 "y":2443
                 }, 
                 {
                  "height":50,
@@ -97,79 +80,11 @@
                  "type":"static",
                  "visible":true,
                  "width":648.06,
-                 "x":93.9699999999998,
-                 "y":191
+                 "x":137.97,
+                 "y":475
                 }, 
                 {
-                 "height":50,
-                 "id":64,
-                 "name":"platform",
-                 "properties":[
-                        {
-                         "name":"isStatic",
-                         "type":"bool",
-                         "value":true
-                        }],
-                 "rotation":0,
-                 "type":"static",
-                 "visible":true,
-                 "width":224.06,
-                 "x":4225.97,
-                 "y":1383
-                }, 
-                {
-                 "height":50,
-                 "id":65,
-                 "name":"platform",
-                 "properties":[
-                        {
-                         "name":"isStatic",
-                         "type":"bool",
-                         "value":true
-                        }],
-                 "rotation":0,
-                 "type":"static",
-                 "visible":true,
-                 "width":228.059999999999,
-                 "x":4481.97,
-                 "y":1347
-                }, 
-                {
-                 "height":50,
-                 "id":66,
-                 "name":"platform",
-                 "properties":[
-                        {
-                         "name":"isStatic",
-                         "type":"bool",
-                         "value":true
-                        }],
-                 "rotation":0,
-                 "type":"static",
-                 "visible":true,
-                 "width":436.059999999999,
-                 "x":4733.97,
-                 "y":1327
-                }, 
-                {
-                 "height":50,
-                 "id":67,
-                 "name":"platform",
-                 "properties":[
-                        {
-                         "name":"isStatic",
-                         "type":"bool",
-                         "value":true
-                        }],
-                 "rotation":0,
-                 "type":"static",
-                 "visible":true,
-                 "width":952.06,
-                 "x":5201.97,
-                 "y":1439
-                }, 
-                {
-                 "height":1490,
+                 "height":2470,
                  "id":68,
                  "name":"platform",
                  "properties":[
@@ -182,14 +97,19 @@
                  "type":"static",
                  "visible":true,
                  "width":50,
-                 "x":145.972,
-                 "y":119
+                 "x":1.97200000000004,
+                 "y":-9
                 }, 
                 {
-                 "height":1474,
-                 "id":69,
+                 "height":2470,
+                 "id":70,
                  "name":"platform",
                  "properties":[
+                        {
+                         "name":"isSensor",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"isStatic",
                          "type":"bool",
@@ -199,8 +119,8 @@
                  "type":"static",
                  "visible":true,
                  "width":50,
-                 "x":18451.972,
-                 "y":19
+                 "x":2451,
+                 "y":-11
                 }],
          "opacity":1,
          "properties":[
@@ -221,17 +141,29 @@
         }, 
         {
          "draworder":"topdown",
-         "id":5,
-         "name":"test",
-         "objects":[],
+         "id":6,
+         "name":"player",
+         "objects":[
+                {
+                 "ellipse":true,
+                 "height":100,
+                 "id":71,
+                 "name":"player",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":100,
+                 "x":344,
+                 "y":148
+                }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
          "x":0,
          "y":0
         }],
- "nextlayerid":6,
- "nextobjectid":70,
+ "nextlayerid":7,
+ "nextobjectid":72,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.8.4",
@@ -240,5 +172,5 @@
  "tilewidth":50,
  "type":"map",
  "version":"1.8",
- "width":370
+ "width":50
 }

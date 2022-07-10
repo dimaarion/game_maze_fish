@@ -2,7 +2,7 @@ import Action from "./Action";
 import scena from "./data/scena.json";
 export default class Scena extends Action {
   setup() {
-    // console.log(this.scenaObject("platform", 1));
+    // console.log(this.properties("platform", 1));
   }
 
   scenaWidth() {
@@ -43,5 +43,8 @@ export default class Scena extends Action {
       width: this.scenaObjectW(name, i),
       height: this.scenaObjectH(name, i)
     };
+  }
+  properties(name, i) {
+    return this.objects(name).map((x) => x.properties)[i];
   }
 }
