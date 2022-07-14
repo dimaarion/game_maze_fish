@@ -4,6 +4,7 @@ import Matter from "matter-js";
 import Scena from "./Scena";
 import Action from "./Action";
 import Body from "./Body";
+import Animate from "./Animate";
 export default class App extends Component {
   World = Matter.World;
   Bodies = Matter.Bodies;
@@ -19,6 +20,12 @@ export default class App extends Component {
   scena = new Scena();
   platform = new Body("platform");
   player = new Body("player");
+  animate = new Animate();
+  imageTest;
+
+  preload = (p5) => {
+    this.imageTest = p5.loadImage("./data/money2.png");
+  };
   setup = (p5, canvasParentRef) => {
     this.engine = this.Engine.create();
     this.world = this.engine.world;
@@ -35,16 +42,25 @@ export default class App extends Component {
     this.platform.isStatic(true);
     this.player.figure = 1;
     this.player.setup(p5, this.world);
+    this.animate.setup(p5);
+    this.animate.animateE("./data/money2.png");
+    this.animate.setupAnimate();
   };
   draw = (p5) => {
     p5.background(100);
     p5.fill(0);
-    this.platform.draw(0);
+    p5.image(this.imageTest, 1000, 1000, 100, 100);
+    p5.push();
+    this.player.translates();
     this.player.draw(1);
+    this.platform.draw(0);
     this.Engine.update(this.engine, 16.666, 1);
+    p5.pop();
   };
 
   render() {
-    return <Sketch setup={this.setup} draw={this.draw} />;
+    return (
+      <Sketch setup={this.setup} draw={this.draw} preload={this.preload} />
+    );
   }
 }

@@ -43,6 +43,14 @@ export default class Body extends Scena {
     this.body.map((x) => (x.isStatic = t));
   }
 
+  translates() {
+    for (let i = 0; i < this.body.length; i++) {
+      this.p5.translate(
+        -this.body[i].position.x + this.p5.width / 2,
+        -this.body[i].position.y + this.p5.height / 2
+      );
+    }
+  }
   draw(f) {
     this.p5.rectMode(this.p5.CENTER);
     this.body.map((x, i) =>
