@@ -32,7 +32,7 @@ export default class Body extends Scena {
     );
 
     this.body.map((x) => this.World.add(world, x));
-    console.log(this.body);
+    //console.log(this.body);
   }
 
   isVelocity(vx, vy, i) {

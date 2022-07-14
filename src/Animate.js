@@ -17,7 +17,7 @@ export default class Animate extends Action {
   orientation = 0;
   p5;
   animated = true;
-
+  newArrImg = [];
   image;
 
   setup(p5) {
@@ -32,6 +32,7 @@ export default class Animate extends Action {
     this.h = h;
     this.frame = frame;
     this.format = format;
+    this.img = this.p5.loadImage(this.name);
   }
   animateB(name, frame, x, y, w, h) {
     this.name = name;
@@ -40,52 +41,58 @@ export default class Animate extends Action {
     this.w = w;
     this.h = h;
     this.frame = frame;
+    this.img = this.p5.loadImage(this.name);
   }
 
   animateC(name, frame, format) {
     this.name = name;
     this.frame = frame;
     this.format = format;
+    this.img = this.p5.loadImage(this.name);
   }
   animateD(name, frame) {
     this.name = name;
     this.frame = frame;
+    this.animated = true;
+    this.img = this.p5.loadImage(this.name);
   }
   animateE(name) {
     this.name = name;
     this.animated = false;
+    this.img = this.p5.loadImage(this.name);
   }
 
   setupAnimate() {
-    this.img = this.p5.loadImage(this.name);
     if (this.animated) {
-      this.image = new Array(this.frame);
+      this.newArrImg = new Array(this.frame);
+
       this.widthI = this.img.width;
       this.heightI = this.img.height;
-      if (this.orientation == 0) {
-        if (this.widthSp != 0) {
+
+      if (this.orientation === 0) {
+        if (this.widthSp !== 0) {
           this.img.resize(this.frame * this.widthSp, this.heightI);
         } else {
           this.widthSp = this.widthI / this.frame;
         }
       } else {
-        if (this.widthSp != 0) {
+        if (this.widthSp !== 0) {
           this.img.resize(this.widthI, this.frame * this.widthSp);
         } else {
           this.widthSp = this.heightI / this.frame;
         }
       }
 
-      for (let i = 0; i < this.image.length; i++) {
-        if (this.orientation == 0) {
-          this.image[i] = this.img.get(
+      for (let i = 0; i < this.newArrImg.length; i++) {
+        if (this.orientation === 0) {
+          this.newArrImg[i] = this.img.get(
             i * this.widthSp,
             0,
             this.widthSp,
             this.heightI
           );
         } else {
-          this.image[i] = this.img.get(
+          this.newArrImg[i] = this.img.get(
             0,
             i * this.widthSp,
             this.widthI,
@@ -121,7 +128,7 @@ export default class Animate extends Action {
   sprite() {
     try {
       if (this.animated) {
-        return this.image[this.xp];
+        return this.newArrImg[this.xp];
       } else {
         return this.img;
       }
@@ -137,8 +144,8 @@ export default class Animate extends Action {
   spriteRect(w, h) {
     try {
       if (this.animated) {
-        this.image[this.xp].resize(w, h);
-        return this.image[this.xp];
+        this.newArrImg[this.xp].resize(w, h);
+        return this.newArrImg[this.xp];
       } else {
         this.img.resize(w, h);
         return this.img;
@@ -150,8 +157,8 @@ export default class Animate extends Action {
   spriteEllipse(w) {
     try {
       if (this.animated) {
-        this.image[this.xp].resize(w, w);
-        return this.image[this.xp];
+        this.newArrImg[this.xp].resize(w, w);
+        return this.newArrImg[this.xp];
       } else {
         this.img.resize(this.w, this.w);
         return this.img;
@@ -164,8 +171,8 @@ export default class Animate extends Action {
   spriteInt(w, h, i) {
     try {
       if (this.animated) {
-        this.image[i].resize(w, h);
-        return this.image[i];
+        this.newArrImg[i].resize(w, h);
+        return this.newArrImg[i];
       } else {
         this.img.resize(w, w);
         return this.img;
@@ -179,7 +186,7 @@ export default class Animate extends Action {
     this.params();
     try {
       if (this.animated) {
-        this.p5.image(this.image[this.xp], this.x, this.y, this.w, this.h);
+        this.p5.image(this.newArrImg[this.xp], this.x, this.y, this.w, this.h);
       }
     } catch (Exception) {
       console.log("error");

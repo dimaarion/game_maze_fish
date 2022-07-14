@@ -24,7 +24,11 @@ export default class App extends Component {
   imageTest;
 
   preload = (p5) => {
-    this.imageTest = p5.loadImage("./data/money2.png");
+    this.animate.setup(p5);
+    this.animate.animateD(
+      "https://uploads.codesandbox.io/uploads/user/f0ec9a1a-dbb6-4f1c-875a-49dd16e23056/lvmz-money2.png",
+      6
+    );
   };
   setup = (p5, canvasParentRef) => {
     this.engine = this.Engine.create();
@@ -42,14 +46,13 @@ export default class App extends Component {
     this.platform.isStatic(true);
     this.player.figure = 1;
     this.player.setup(p5, this.world);
-    this.animate.setup(p5);
-    this.animate.animateE("./data/money2.png");
     this.animate.setupAnimate();
   };
   draw = (p5) => {
     p5.background(100);
     p5.fill(0);
-    p5.image(this.imageTest, 1000, 1000, 100, 100);
+    this.animate.params();
+    p5.image(this.animate.sprite(), 0, 0);
     p5.push();
     this.player.translates();
     this.player.draw(1);
