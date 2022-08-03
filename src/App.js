@@ -21,12 +21,18 @@ export default class App extends Component {
   platform = new Body("platform");
   player = new Body("player");
   animate = new Animate();
+  animateFish = new Animate();
   imageTest;
 
   preload = (p5) => {
     this.animate.setup(p5);
+    this.animateFish.setup(p5);
     this.animate.animateD(
       "https://uploads.codesandbox.io/uploads/user/f0ec9a1a-dbb6-4f1c-875a-49dd16e23056/lvmz-money2.png",
+      6
+    );
+    this.animateFish.animateD(
+      "https://uploads.codesandbox.io/uploads/user/f0ec9a1a-dbb6-4f1c-875a-49dd16e23056/JJrL-swim_to_right_sheet.png",
       6
     );
   };
@@ -47,12 +53,15 @@ export default class App extends Component {
     this.player.figure = 1;
     this.player.setup(p5, this.world);
     this.animate.setupAnimate();
+    this.animateFish.setupAnimate();
   };
   draw = (p5) => {
     p5.background(100);
     p5.fill(0);
     this.animate.params();
-    p5.image(this.animate.sprite(), 0, 0);
+    p5.image(this.animate.sprite(), 100, 100, 200, 200);
+    this.animateFish.params();
+    p5.image(this.animateFish.sprite(), 100, 300, 200, 200);
     p5.push();
     this.player.translates();
     this.player.draw(1);
