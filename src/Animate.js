@@ -104,7 +104,7 @@ export default class Animate extends Action {
   }
 
   params() {
-    if (this.format == 0) {
+    if (this.format === 0) {
       this.xr += 1;
       if (this.xr > this.rate) {
         this.xp = this.xp + 1;
@@ -113,7 +113,7 @@ export default class Animate extends Action {
       if (this.xp > this.frame - 1) {
         this.xp = 0;
       }
-    } else if (this.format == 1) {
+    } else if (this.format === 1) {
       this.xr += 1;
       if (this.xr > this.rate) {
         this.xp = this.xp + 1;
